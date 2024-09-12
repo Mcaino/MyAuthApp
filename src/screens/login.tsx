@@ -1,18 +1,22 @@
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import React, { useState } from 'react';
 import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
+import { RootStackParamList } from '../../App';
 
-const LoginScreen = () => {
-  const [phone, setPhone] = useState('');
-  const [password, setPassword] = useState('');
+type Props = NativeStackScreenProps<RootStackParamList>;
+
+export default function  LoginScreen ({ navigation }:Props) {
+  const [phone, setPhone] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
 
   const handleLoginScreen = () => {
-    // Authentication logic will go here!
+    //Our  Authentication logic will go here!
     console.log('LoginScreen:', phone, password);
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>LoginScreen</Text>
+      <Text style={styles.title}>Login</Text>
       <TextInput
         style={styles.input}
         placeholder="Phone Number"
@@ -28,7 +32,7 @@ const LoginScreen = () => {
         secureTextEntry
       />
       <TouchableOpacity style={styles.button} onPress={handleLoginScreen}>
-        <Text style={styles.buttonText}>LoginScreen</Text>
+        <Text style={styles.buttonText}>Login</Text>
       </TouchableOpacity>
     </View>
   );
@@ -65,4 +69,3 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LoginScreen;
