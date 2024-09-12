@@ -1,9 +1,12 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { useNavigation } from "@react-navigation/native";
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../../App';
 
-const WelcomeScreen = () => {
-  const navigation = useNavigation();
+
+type Props = NativeStackScreenProps<RootStackParamList>;
+
+export default function WelcomeScreen ({ navigation }:Props) {
 
   return (
     <View style={styles.container}>
@@ -16,7 +19,7 @@ const WelcomeScreen = () => {
       </TouchableOpacity>
       <TouchableOpacity 
         style={styles.button} 
-        onPress={() => navigation.navigate('Signup')}
+        onPress={() => navigation.navigate('Register')}
       >
         <Text style={styles.buttonText}>Sign Up</Text>
       </TouchableOpacity>
@@ -47,4 +50,5 @@ const styles = StyleSheet.create({
   },
 });
 
-export default WelcomeScreen;
+
+
