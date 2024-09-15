@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import { RootStackParamList } from '../../App';
 
-const SignupScreen = () => {
-  const [phone, setPhone] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+type Props = NativeStackScreenProps<RootStackParamList>;
+
+export default function SignupScreen  ({navigation}:Props)  {
+  const [phone, setPhone] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
 
   const handleSignupScreen = () => {
-    // Sign-up logic will go here!
+    // Our Sign-up logic will go here!
     console.log('Signup:', phone, email, password);
   };
 
@@ -73,4 +77,3 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SignupScreen;
